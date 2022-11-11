@@ -2,7 +2,7 @@
   "name": "@danielrdzc/vue-excel-editor",
   "email": "daniel.rdz.dev@gmail.com",
   "description": "Forked from cscan/vue-excel-editor - Vue2 plugin for displaying and editing the array-of-object in Excel style",
-  "version": "1.5.19",
+  "version": "1.0.0",
   "main": "src/main.js",
   "dependencies": {
     "vue2-datepicker": "^3.3.0",
@@ -41,10 +41,10 @@
     "navigatable",
     "contenteditable"
   ],
-  "author": "Kenneth Cheng",
+  "author": "Daniel Rodriguez",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cscan/vue-excel-editor/issues"
+    "url": "https://github.com/danielrdzc/vue-excel-editor/issues"
   },
-  "homepage": "https://github.com/cscan/vue-excel-editor#readme"
+  "homepage": "https://github.com/danielrdzc/vue-excel-editor#readme"
 }
