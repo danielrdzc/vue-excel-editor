@@ -170,8 +170,7 @@
 
         <!-- Date Picker -->
         <div ref="dpContainer" v-show="showDatePicker" style="z-index:20; position:fixed">
-          <date-picker ref="datepicker" :language="es" v-model="inputDateTime" @input="datepickerClick" :value="inputDateTime"></date-picker>
-          <!-- <date-picker ref="datepicker" inline v-model="inputDateTime" @input="datepickerClick" valueType="format"></date-picker> -->
+          <date-picker ref="datepicker" :inline="true" :language="es" v-model="inputDateTime" @input="datepickerClick" :value="inputDateTime" format="dd-MM-yyyy"></date-picker>
         </div>
 
         <!-- Waiting scene -->
@@ -279,7 +278,6 @@ import VueExcelFilter from './VueExcelFilter.vue'
 import PanelFilter from './PanelFilter.vue'
 import PanelSetting from './PanelSetting.vue'
 import PanelFind from './PanelFind.vue'
-//import DatePicker from 'vue2-datepicker'
 import DatePicker from 'vuejs-datepicker';
 import {es} from 'vuejs-datepicker/dist/locale'
 import XLSX from 'xlsx'
@@ -470,7 +468,8 @@ export default {
       summaryRow: false,
       summary: {},
       showFilteredOnly: true,
-      showSelectedOnly: false
+      showSelectedOnly: false,
+      es: es
     }
     return dataset
   },
@@ -1059,7 +1058,12 @@ export default {
       const cellRect = this.currentCell.getBoundingClientRect()
       this.$refs.dpContainer.style.left = (cellRect.left) + 'px'
       this.$refs.dpContainer.style.top = (cellRect.bottom) + 'px'
-      this.inputDateTime = this.currentCell.textContent
+      let dt = new Date(this.currentCell.textContent)
+      dt.setDate(dt.getDate() + 1)
+      const utc_dt = Date.UTC(dt.getUTCFullYear(), dt.getUTCMonth(),
+      dt.getUTCDate(), dt.getUTCHours(),
+      dt.getUTCMinutes(), dt.getUTCSeconds())
+      this.inputDateTime = utc_dt
       this.showDatePicker = true
       this.lazy(() => {
         if (!this.$refs.dpContainer) return
