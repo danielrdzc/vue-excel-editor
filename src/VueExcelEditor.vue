@@ -280,7 +280,7 @@ import PanelFilter from './PanelFilter.vue'
 import PanelSetting from './PanelSetting.vue'
 import PanelFind from './PanelFind.vue'
 //import DatePicker from 'vue2-datepicker'
-import Datepicker from 'vuejs-datepicker';
+import DatePicker from 'vuejs-datepicker';
 import {es} from 'vuejs-datepicker/dist/locale'
 import XLSX from 'xlsx'
 
