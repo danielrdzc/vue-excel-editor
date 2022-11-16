@@ -170,7 +170,8 @@
 
         <!-- Date Picker -->
         <div ref="dpContainer" v-show="showDatePicker" style="z-index:20; position:fixed">
-          <date-picker ref="datepicker" inline v-model="inputDateTime" @input="datepickerClick" valueType="format"></date-picker>
+          <date-picker ref="datepicker" :language="es" v-model="inputDateTime" @input="datepickerClick" :value="inputDateTime"></date-picker>
+          <!-- <date-picker ref="datepicker" inline v-model="inputDateTime" @input="datepickerClick" valueType="format"></date-picker> -->
         </div>
 
         <!-- Waiting scene -->
@@ -278,7 +279,9 @@ import VueExcelFilter from './VueExcelFilter.vue'
 import PanelFilter from './PanelFilter.vue'
 import PanelSetting from './PanelSetting.vue'
 import PanelFind from './PanelFind.vue'
-import DatePicker from 'vue2-datepicker'
+//import DatePicker from 'vue2-datepicker'
+import Datepicker from 'vuejs-datepicker';
+import {es} from 'vuejs-datepicker/dist/locale'
 import XLSX from 'xlsx'
 
 import 'vue2-datepicker/index.css'
